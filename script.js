@@ -138,29 +138,33 @@ function selectAnswer(e) {
     Array.from(answerButton.children).forEach(button => {
         if (button.dataset.children === "true") {
             button.classList.add("correct");
+        }else{
+            if(button.dataset.correct === "true") {
+                button.classList.add("correct");
+            }
         }
         button.disabled = true;
     });
     nextButton.style.display = "block";
 }
-function  showScore(){
+function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`
     nextButton.innerHTML = "Play Again";
     nextButton.style.display = "block";
 }
-function handleNextButton(){
+function handleNextButton() {
     currentQuestionIndex++;
-    if(currentQuestionIndex < questions.length){
+    if (currentQuestionIndex < questions.length) {
         showQuestion();
-    }else{
+    } else {
         showScore();
     }
 }
-nextButton.addEventListener("click",()=>{
-    if(currentQuestionIndex < questions.length){
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
         handleNextButton();
-    }else{
+    } else {
         startQuiz()
     }
 })
