@@ -138,10 +138,8 @@ function selectAnswer(e) {
     Array.from(answerButton.children).forEach(button => {
         if (button.dataset.children === "true") {
             button.classList.add("correct");
-        }else{
-            if(button.dataset.correct === "true") {
-                button.classList.add("correct");
-            }
+        }else if(button.dataset.correct === "true") {
+            button.classList.add("correct");
         }
         button.disabled = true;
     });
